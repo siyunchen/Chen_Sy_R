@@ -1,0 +1,110 @@
+---
+title: "Chen_Sy_HW 4"
+author: "Siyun Chen"
+date: "9/29/2016"
+output: html_document
+---
+
+```{r}
+# Q1 Create the vectors:
+# a)
+c(1:20) #use c() function to combine numbers 1 to 20 one by one
+
+# b)
+c(20:1) #use c() function to combine numbers 20 to 1 one by one
+
+# c)
+c(1:20,19:1) #use c() function to combine numbers 1 to 20 and then from 19 to 1 one by one
+
+# d)
+tmp <- c(4, 6, 3) #use <- to assign (4,6,3) to temp
+tmp
+
+# e)
+rep(tmp, 10) #use rep() function to repeat each element in tmp for 10 times of occurences (so we get 10 occurences of 4)
+
+# f)
+rep(tmp, l=31) #use rep() function to repeat each element in tmp and to get the outcome that the length is 31 (so we get 11 occurences of 4, 10 occurences of 6 and 10 occurences of 3)
+
+#g)
+rep(tmp,times = c(10,20,30)) #use  rep() function to repeat each element in tmp and to get the 10 times (occurences) of 4, 20 times (occurences) of 6 and 30 times (occurences) of 3
+
+# Q2 
+x <- seq(3,6,by=0.1) #use seq() function to generate a squence from 3 to 6 and increae each value from 3 by 0.1 one by one until to 6, then assign these values to x (independent variable in the following function )
+exp(x)*cos(x) #define a function exp(x)*cos(x) and get the results by using each value of x in the squence we generate
+
+# Q3 Creating the following vectors:
+# a) 
+x <- (seq(3,36,by=3)) #use seq() function to generate a squence from 3 to 36 and increase each value from 3 by 3 one by one until to 36, then assign these values to x (the power of 0.1)
+y <- (seq(1,34,by=3)) #use seq() function to generate a squence from 1 to 34 and increase each value from 1 by 3 one by one until to 34, then assign these values to y (the power of 0.2)
+(0.1^x * 0.2^y) #get the results of 0.1^x times 0.2^y by using each value of x and y in the squences we generate
+
+#b)
+x <- (seq(1,25,by=1)) #use seq() function to generate a squence from 1 to 25 and increase each value from 1 by 1 one by one until to 25, then assign these values to x
+(2^x) / x #get the results of (2^x) / x by using each value of x in the squence we generate
+
+# Q4 Calculate the following:
+# a)
+i <- seq(10,100,by=1) #use seq() function to generate a squence from 10 to 100 and increase each value from 1 by 1 one by one until to 100, then assign these values to i
+sum((i^3) + 4 * (i^2)) #get the results of the sum of (i^3) + 4 * (i^2) by using each value of i in the squence we generate
+
+# b)
+i <- seq(1,25,by=1) #use seq() function to generate a squence from 1 to 25 and increase each value from 1 by 1 one by one until to 25, then assign these values to i
+sum((2^i)/i + (3^i)/(i^2)) #get the results of the sum of(2^i)/i + (3^i)/(i^2) by using each value of i in the squence we generate
+
+# Q5 Use the function paste to create the following character vectors of length 30:
+# a) There is a single space between label and the number following
+paste("label", 1:30) #use paste() function to get "label 1" to "label 30" one by one
+
+# b) There is no space between fn and the number following
+paste("fn", 1:30, sep="") #use paste() function to get "fn1" to "fn30" one by one, use sep="" to guarantee there is no space between fn and the number following
+
+# Q6 Execute the following lines which create two vectors of random integers which are chosen with replacement from the integers 0, 1, . . . , 999. Both vectors have length 250. Suppose x = (x1,x2,...,xn) denotes the vector xVec and y = (y1,y2,...,yn) denotes the vector yVec.
+# a)
+set.seed(50) #execute the lines from homework
+xVec <- sample(0:999,250,replace=T) #x = (x1,x2,...,xn) denotes the vector xVec and this vector is of random integers which are chosen with replacement from the integers 0, 1, . . . , 99 and this vectro has length 250
+yVec <- sample(0:999,250,replace=T) #y = (y1,y2,...,yn) denotes the vector yVec and this vector is of random integers which are chosen with replacement from the integers 0, 1, . . . , 99 and this vectro has length 250 
+c(yVec[-1] - xVec[-250]) #use yVec[-1] to get all elements in yVex except for the first element, use xVec[-250] to get all elements in xVec except for the last element. then to get the results of yVec[-1] - xVec[-250] by using the each value of yVec and xVec in the squences we generate (y2-x1, y3-x2,..., yn-xn-1). then use c() function to combine all the results one by one.
+
+# b)
+c((sin(yVec[-250])) / (cos(xVec[-1]))) #use yVec[-250] to get all elements in yVex except for the last element, use xVec[-1] to get all elements in xVec except for the first element. then to get the results of (sin(yVec[-250])) / (cos(xVec[-1])) by using the each value of yVec and xVec in the squences we generate (sin(y1)/cos(x2),sin(y2)/cos(x3),...,sin(yn-1)/cos(xn)). then use c() function to combine all the results one by one.
+
+# c)
+c(xVec[-c(249,250)] + 2*xVec[-c(1,250)] - xVec[-c(1,2)]) #use xVec[-c(249,250)] to get all elements in xVec except for last two elements, use xVec[-c(1,250) to  get all elements in xVec except for the first and the last element, use xVec[-c(1,2)] to get all elements in xVec except for the first and the second element. then to get the results of (xVec[-c(249,250)] + 2*xVec[-c(1,250)] - xVec[-c(1,2)]) by using the each value of xVec in the squences we generate (x1+2x2-x3,...,xn-2+2xn-1-xn). then use c() function to combine all the results one by one.
+
+# d)
+sum(exp(-xVec[-1]) / (xVec[-250]+10)) #use xVec[-1] to get all elements in xVec except for the first element, use xVec[-250] to get all elements in xVec except for the last element. for Xi, they are from x1 to x249. for Xi+1, they are from x2 to x250. then to get the results of sum(exp(-xVec[-1]) / (xVec[-250]+10)) by using the each value of xVec in the squences we generate
+
+# Q7 This question uses the vectors xVec and yVec created in the previous question and the functions sort, order, mean, sqrt, sum and abs.
+# a)
+yVec[yVec > 600] #pick out the values in yVec which are larger than 600
+
+# b)
+which(yVec > 600) #get the index positions in yVec of the values which are larger than 600
+
+# c)
+xVec[yVec>600] #get the values in xVec which correspond to the values in yVec which are larger than 600
+
+# d)
+sqrt(abs(xVec - mean(xVec))) #use sqrt, abs and mean functions
+
+# e)
+sum(yVec > max(yVec)-200) #use max function to find the maximum value of the terms in yVec, then get the number of values in yVec that are within 200 of the maximum value of the terms in yVec
+
+# f)
+sum(xVec%%2 == 0) #use the mod operator to find the number of values in xVec are divisible by 2
+
+# g)
+xVec[order(yVec)] #use order function to get the order of increasing values in yVec
+
+# h)
+yVec[c(T,F,F)] #treat every three elements in yVec as a group by order, then we pick the first element of each group
+
+# Q8 By using the function cumprod or otherwise, calculate:
+de <- seq(3,39,by=2) #use seq() function to generate a squence from 3 to 39 and increae each value from 3 by 2 one by one until to 39, then assign these values to de(denominator)
+nu <- seq(2,38,by=2) #use seq() function to generate a squence from 2 to 38 and increae each value from 2 by 2 one by one until to 38, then assign these values to nu(numerator) 
+1 + sum(cumprod(nu/de)) #for convenience we count 1 individually, then to get the results of sum(cumprod(nu/de) by using the each value of de and nu in the squences we generate
+
+```
+
+
