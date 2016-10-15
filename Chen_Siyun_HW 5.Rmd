@@ -6,10 +6,6 @@ output: html_document
 ---
 ```{r}
 
-data("diamonds")
-str(diamonds)
-attributes(diamonds)$names
-
 # Q1 Print to the console all methods and attributes associates with a dataframe. Write code to determine the number of columns in a dataframe.
 
 library(ggplot2) #use library() function to get the ggplot2 package that contains diamonds dataset
