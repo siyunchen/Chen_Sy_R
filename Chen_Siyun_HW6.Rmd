@@ -4,7 +4,7 @@ author: "Siyun Chen"
 date: "10/13/2016"
 output: html_document
 ---
-#OVerall Comments: Good exercise! You got the algorithm of ggplot so next step for you should improve the format and make your code more readable.
+#Overall Comments: Good exercise! You got the algorithm of ggplot so next step for you should improve the format and make your code more readable.
 
 ```{r}
 library(ggplot2) #use library() function to get the ggplot2 package that contains diamonds dataset
