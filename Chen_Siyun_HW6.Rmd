@@ -4,6 +4,8 @@ author: "Siyun Chen"
 date: "10/13/2016"
 output: html_document
 ---
+#OVerall Comments: Good exercise! You got the algorithm of ggplot so next step for you should improve the format and make your code more readable.
+
 ```{r}
 library(ggplot2) #use library() function to get the ggplot2 package that contains diamonds dataset
 data("diamonds") #use data() function to get the diamonds dataset
@@ -51,6 +53,8 @@ zhistogram <- ggplot(diamonds,aes(z)) #create the histogram for the numeric colu
 zhistogram + geom_histogram(bins = 60) + ggtitle("Histogram for Z") #plot the histogram for variable z (the original histogram of z)
 zhistogram + geom_histogram(bins = 60) + ggtitle("Histogram for Z") + xlim(2, 6) #use xlim(2,6) to remove the outliers from the histogram for z
 
+#Comments: I do see your code works for this problem. But I just want to point out that you actually have better way to do this. One way should be filter out all the numeric variables and then use one loop draw the histograms for each. This way should be more clear and readable.
+
 # Q2 Create a simple scatter plot of Weight (“Carat”) and Price using Color (the “Color” column in the diamonds dataframe) as a facet.
 #Parameter: Weight (“Carat”) and Price of the diamonds dataset
 #Return: a imple scatter plot of Weight (“Carat”) and Price 
@@ -61,6 +65,9 @@ scatterplot <- scatterplot + geom_point() + ggtitle("Diamonds - Weight to Price 
 #plot a scatter plot for Weight ("Carat") and Price, use ggtitle() function to title the graph "Diamonds - Weight to Price by Color",  and use theme() function to edit the title
 scatterplot <- scatterplot + xlab("Weight") + ylab("Price") + labs(colour = "factor(color)") #x-axis is "Weight" and y-axis is "Price"
 print(scatterplot) #print the final scatter plot 
+
+#Comments: This code works in this problem and I do see your understanding in the layer ploting thought in ggplot. But I suggest one better format that you can refer to 
+ggplot(diamonds,aes(carat,price))+geom_point(aes(color=factor(color)))+labs(title="Diamonds-Weight to Price by Color",x='Weight',y='Price')
 
 # Q3 Let’s remove the non-linearity and replot. Think about transforming both price and weight. Given that we are working with dollars (Price); the first transformation we might try is the natural log. Add the transformed columns to the dataframe and replot.
 
